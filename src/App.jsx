@@ -4,10 +4,8 @@ import _questions from './data';
 const shuffle = (array) => {
   return array.sort(() => Math.random() - 0.5);
 };
-
+const questions = shuffle(_questions);
 export default function App() {
-  const questions = shuffle(_questions);
-
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(-1);
   const [selectedOption, setSelectedOption] = useState(-1);
 
@@ -20,7 +18,11 @@ export default function App() {
     setSelectedOption(option);
   };
 
+  // console.log(selectedOptionIndex);
+  console.log(currentQuestion);
+
   const handleAnswerButtonClick = () => {
+    console.log('inn');
     setSelectedOptionIndex(-1);
     if (selectedOption === questions[currentQuestion].answer) {
       setScore((prev) => prev + 1);
